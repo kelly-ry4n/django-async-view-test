@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+<html lang="en">
+
+
+
+<head>
+
+
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <title>Title Goes Here</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+
+
+
+<body>
+    <script type="text/javascript">
+
+(function worker() {
+  $.ajax({
+    url: '/get_data', 
+    success: function(data) {
+      $('p').append(data);
+    },
+    complete: function() {
+      // Schedule the next request when the current one's complete
+      setTimeout(worker, 5000);
+    }
+  });
+})();
+    </script>
+<p>This is my web page</p>
+
+
+
+</body>
+
+
+
+</html>
+
+
+
